@@ -1,4 +1,10 @@
-<?php
+<?php 
+$file = file("count.txt");
+$count = implode("", $file);
+$count++;
+$myfile = fopen("count.txt","w");
+fputs($myfile,$count);
+fclose($myfile);
 
 require('../vendor/autoload.php');
 
@@ -23,3 +29,5 @@ $app->get('/', function() use($app) {
 });
 
 $app->run();
+?>
+<span>Просмотров: < ?=$count ?></span>
