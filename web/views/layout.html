@@ -5,8 +5,12 @@
 </head>
 
 <body>
-	<? $file = @file("count.txt");$count = @implode("", $file);$count++;
-$myfile = fopen("count.txt","w");fputs($myfile,$count);fclose($myfile); ?>
+	<?php $file = @file("count.txt");?>
+	<?php $count = @implode("", $file);?>
+	<?php $count++;?>
+	<?php $myfile = fopen("count.txt","w");?>
+	<?php fputs($myfile,$count);?>
+	<?php fclose($myfile);?>
   {% include 'nav.html' %}
 
   {% block content %}{% endblock %}
