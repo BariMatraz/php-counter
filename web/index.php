@@ -1,5 +1,5 @@
 <?php
-$count = 3;
+$count = "3";
 
 require('../vendor/autoload.php');
 
