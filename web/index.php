@@ -29,5 +29,3 @@ $app->get('/', function() use($app) {
 });
 
 $app->run();
-?>
-<span>Просмотров: < ?=$count ?></span>
