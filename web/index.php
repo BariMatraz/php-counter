@@ -22,10 +22,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 // Our web handlers
-
+$app['count'] = $count
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig', array('count' => 3));
+  return $app['twig']->render('index.twig', array('count' => $app['count']));
 });
 
 $app->run();
