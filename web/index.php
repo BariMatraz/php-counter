@@ -1,5 +1,4 @@
 <?php
-$count = "3";
 
 require('../vendor/autoload.php');
 
@@ -19,7 +18,12 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 // Our web handlers
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  $count = "3";
+  $file = file("count.txt");
+  $count = implode("", $file);
+  $count++;
+  $myfile = fopen("count.txt","w");
+  fputs($myfile,$count);
+  fclose($myfile);
   return $app['twig']->render('index.twig', array('count' => $count));
 });
 
