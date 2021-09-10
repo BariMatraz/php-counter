@@ -1,6 +1,6 @@
 <?php 
-$file = @file("count.txt");
-$count = @implode("", $file);
+$file = file("count.txt");
+$count = implode("", $file);
 $count++;
 $myfile = fopen("count.txt","w");
 fputs($myfile,$count);
