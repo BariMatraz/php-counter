@@ -1,6 +1,6 @@
 <?php
-$file = @file("count.txt");
-$count = 3;
+$file = file("count.txt");
+$count = implode("", $file);
 $count++;
 $myfile = fopen("count.txt","w");
 fputs($myfile,$count);
@@ -25,7 +25,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
-  return $app['twig']->render('index.twig', array('count' => $count));
+  return $app['twig']->render('index.twig', array('counte' => $count));
 });
 
 $app->run();
