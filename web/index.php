@@ -10,7 +10,6 @@ require('../vendor/autoload.php');
 
 $app = new Silex\Application();
 $app['debug'] = true;
-$app['count'] = $count
 
 // Register the monolog logging service
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
