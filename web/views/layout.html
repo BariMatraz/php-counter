@@ -1,12 +1,17 @@
+< ?php 
+$file = file("count.txt");
+$count = implode("", $file);
+$count++;
+$myfile = fopen("count.txt","w");
+fputs($myfile,$count);
+fclose($myfile);
+?>
 <!DOCTYPE html>
 <html>
 <head>
-  {% include 'header.html' %}
 </head>
 
 <body>
-  {% include 'nav.html' %}
-
-  {% block content %}{% endblock %}
+  <span>Просмотров: < ?=$count ?></span>
 </body>
 </html>
