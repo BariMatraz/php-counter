@@ -27,4 +27,15 @@ $app->get('/', function() use($app) {
   return $app['twig']->render('index.twig', array('count' => $count));
 });
 
+$app->get('/tknum', function() use($app) {
+  $app['monolog']->addDebug('logging output.');
+  $file = file("count.txt");
+  $count = implode("", $file);
+  $count++;
+  $myfile = fopen("count.txt","w");
+  fputs($myfile,$count);
+  fclose($myfile);
+  return $app->escape($count);
+});
+
 $app->run();
