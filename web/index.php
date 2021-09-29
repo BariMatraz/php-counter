@@ -21,6 +21,7 @@ $app->get('/', function() use($app) {
   $file = file("count.txt");
   $count = implode("", $file);
   $count++;
+  if ($count < 450) $count = 450;
   $myfile = fopen("count.txt","w");
   fputs($myfile,$count);
   fclose($myfile);
